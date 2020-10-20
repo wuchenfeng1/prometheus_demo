@@ -70,6 +70,9 @@ groups:
   用法：在Controller的方法上加上 @SysLogAnnotation("日志测试") 会记录接口的执行动作
  
   + WebSocket类是WebSocket的配置类向前端推送消息
+  
+  + OkHttpClient类是向指定 URL 发送POST方法的请求
+  + 接口文档：http://localhost:8090/api/swagger-ui.html 
 
 
  
