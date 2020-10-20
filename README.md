@@ -1,9 +1,7 @@
 #Spring Boot Metrics监控之Prometheus
  + Prometheus 与 Grafana 安装过于简单，不做演示
  + Prometheus架构图
-```
- ![Image text](https://github.com/wuchenfeng1/prometheus_demo/jgt.png)
-  ```
+ + ![Image text](https://github.com/wuchenfeng1/prometheus_demo/blob/master/jgt.png)
  + 配置Prometheus的监控程序
  ```
    - job_name: 'monitor_prometheus_job'
