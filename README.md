@@ -1,16 +1,46 @@
 #Spring Boot Metrics监控之Prometheus
- + Prometheus 与 Grafana 安装过于简单，不做演示
+ + Prometheus 与 Grafana 、Alertmanager安装过于简单，不做演示
  + Prometheus架构图
  + ![Image text](https://github.com/wuchenfeng1/prometheus_demo/blob/master/jgt.png)
  + 配置Prometheus的监控程序
  ```
+
    - job_name: 'monitor_prometheus_job'
      scrape_interval: 5s
      metrics_path: '/api/actuator/prometheus' //指标信息
      static_configs:
      - targets: ['127.0.0.1:8090']
  ```
- + 通过web.hook配置alertmanager的告警渠道
+ + 自定义告警规则 1.yml
+ ```
+ 在prometheus.yml中添加如下：
+  rule_files:
+    - "rules/*.yml" //自定义告警规则文件1.yml
+```
+ ```
+ //yml 的内容如下：
+groups:
+# 组名
+- name: "交易支付-超时"
+  rules:
+  # 告警名称
+  - alert: "交易支付-超时"
+    # 表达式
+    expr: cz_time_out_total
+    # 持续时间
+    for: 1s
+    labels:
+      # 严重等级
+      severity: "高"
+    annotations:
+      # 告警概括
+      summary: "交易支付-超时"
+      # 告警描述
+      description: "交易支付-超时：超时信息（当前值：{{ $value }}）"
+      # 自定义告警发送方式
+      sendWay: "5-3,3-2,2-1"
+```
+ + 通过web.hook配置alertmanager的告警渠道,告警渠道
  ```
    global:
      resolve_timeout: 5m
