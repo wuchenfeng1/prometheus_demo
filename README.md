@@ -61,7 +61,13 @@ groups:
        target_match:
          severity: 'warning'
        equal: ['alertname', 'dev', 'instance']
+      
  ```
+  + 通过注解的方式对请求参数加密和解密 
+  用法：在Controller的方法上加上@DecryptRequest/@EncryptResponse 请求或者响应加解密
+
+  + 通过注解的方式对操作日志
+  用法：在Controller的方法上加上 @SysLogAnnotation("日志测试") 会记录接口的执行动作
 
 
  
