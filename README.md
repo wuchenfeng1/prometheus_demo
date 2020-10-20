@@ -68,6 +68,8 @@ groups:
 
   + 通过注解的方式对操作日志
   用法：在Controller的方法上加上 @SysLogAnnotation("日志测试") 会记录接口的执行动作
+ 
+  + WebSocket类是WebSocket的配置类向前端推送消息
 
 
  
