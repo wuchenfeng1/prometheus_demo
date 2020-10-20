@@ -29,4 +29,9 @@ public class PrometheusController {
         wayService.sendAlertChannel();
         return ResponseUtil.success();
     }
+
+
+
+
+    
 }

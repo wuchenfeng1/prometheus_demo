@@ -6,7 +6,7 @@
  ```
    - job_name: 'monitor_prometheus_job'
      scrape_interval: 5s
-     metrics_path: '/api/actuator/prometheus'
+     metrics_path: '/api/actuator/prometheus' //指标信息
      static_configs:
      - targets: ['127.0.0.1:8090']
  ```
@@ -23,7 +23,7 @@
    receivers:
    - name: 'web.hook'
      webhook_configs:
-     - url: 'http://127.0.0.1:8090/alert/msg' // 告警渠道
+     - url: 'http://127.0.0.1:8090/alert/msg' // 自定义告警规则的发送不通渠道的告警，可以采用策略设计模式,使用策略设计模式易于扩展
      send_resolved: true
    inhibit_rules:
      - source_match:
@@ -32,6 +32,7 @@
          severity: 'warning'
        equal: ['alertname', 'dev', 'instance']
  ```
+
 
  
  
