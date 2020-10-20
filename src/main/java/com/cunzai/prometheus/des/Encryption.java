@@ -16,9 +16,9 @@ import java.security.NoSuchAlgorithmException;
  */
 public class Encryption {
 
-	private static final String KEY = "monitor123123456";
+	private static final String KEY = "hahaha";
 
-	private static final String IV = "monitor123123456";
+	private static final String IV = "xixixi";
 
 	public static String encrypt(String content) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
 		Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
