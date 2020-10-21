@@ -40,7 +40,7 @@ groups:
       # 自定义告警发送方式
       sendWay: "5-3,3-2,2-1"
 ```
- + 通过web.hook配置alertmanager的告警渠道,告警渠道
+ + 通过web.hook配置alertmanager的告警渠道,告警渠道(自定义钉钉、邮件、email、短信、企业微信、飞书)
  ```
    global:
      resolve_timeout: 5m
@@ -63,6 +63,10 @@ groups:
        equal: ['alertname', 'dev', 'instance']
       
  ```
+  + 告警渠道接口：/alert/msg (自定义钉钉、邮件、email、短信、企业微信、飞书)
+   ```
+   自定义告警规则的发送不通渠道的告警，可以使用策略设计模式构建多个渠道，易于扩展和代码的维护
+   ```
   + 通过注解的方式对请求参数加密和解密 
   用法：在Controller的方法上加上@DecryptRequest/@EncryptResponse 请求或者响应加解密
 
